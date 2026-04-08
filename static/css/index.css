@@ -1,0 +1,429 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🌊 Background */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("/static/images/background2.png") no-repeat center/cover;
+    animation: floatBg 10s infinite alternate ease-in-out;
+    z-index: -2;
+}
+
+@keyframes floatBg {
+    0% { transform: scale(1) translateY(0px); }
+    100% { transform: scale(1.1) translateY(-20px); }
+}
+
+
+
+/* Layout */
+.main-layout {
+    display: flex;
+    gap: 20px;
+}
+
+/* Left panel */
+.left-panel {
+    width: 30%;
+    height: 900px;
+    padding: 35px 25px;
+    margin-top: 50px;
+
+    background: rgba(0, 123, 255, 0.1);
+    backdrop-filter: blur(12px);
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* Title */
+.info-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 20px;
+}
+
+/* Info box */
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Points */
+.info-box li {
+    font-size: 25px;   /* 🔥 bigger text */
+    font-weight: 500;
+    color: #0a2540;
+
+    margin-bottom: 15px;
+    padding-left: 10px;
+
+    position: relative;
+}
+
+/* Bullet style */
+.info-box li::before {
+    content: "✔";
+    color: #007bff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Typing box */
+.typing-box {
+    font-size: 15px;
+    color: #0a2540;
+    line-height: 1.6;
+}
+
+
+/* Container */
+.carousel-list {
+    list-style: none;
+    padding: 0;
+}
+
+.carousel-list li {
+    font-size: 20px;
+    font-weight: 500;
+    color: #0a2540;
+    width: 75%;
+
+    margin-bottom: 15px;
+    padding: 15px 18px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+
+    opacity: 0.3;   /* faded */
+    transition: all 0.5s ease;
+}
+
+/* Active */
+.carousel-list li.active {
+    opacity: 1;
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+
+    transform: scale(1.03);
+
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.3);
+}
+
+
+
+
+
+/* Container */
+.container {
+    text-align: center;
+    /* padding: 20px; */
+    width: 75%;
+}
+
+
+/* =========================
+   PROFESSIONAL TITLE
+========================= */
+.title-row h1 {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: #0a2540;   /* deep professional blue */
+
+    /* subtle emphasis */
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 5px;
+
+    /* smooth feel */
+    transition: all 0.3s ease;
+}
+
+/* Hover (very subtle, not flashy) */
+.title-row h1:hover {
+    color: #0056b3;
+    border-color: #0056b3;
+    transform: scale(1.05);
+    text-shadow: 0 0 20px #171615,
+                 0 0 40px #04236c;
+    transition: 0.3s ease;
+}
+
+
+/* =========================
+   SHINE ANIMATION
+========================= */
+@keyframes shine {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+
+
+/* =========================
+   TITLE + LOTTIE ROW
+========================= */
+.title-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+
+/* Fix Lottie position */
+.lottie-container {
+    position: relative;   /* 🔥 NOT fixed */
+    width: 800px;
+    height: 250px;
+}
+
+
+
+
+/* Grid layout */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 20px 40px;
+}
+
+
+/* =========================
+   PREMIUM BLUE GLASS CARD
+========================= */
+.card {
+    background: linear-gradient(
+        135deg,
+        rgba(24, 238, 220, 0.6),
+        rgba(22, 132, 235, 0.4)
+    );  /* 🔥 bluish glass instead of white */
+
+    border-radius: 20px;
+
+    height: 130px;
+    width: 260px;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px 30px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(0, 123, 255, 0.15);
+
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 0 10px rgba(0, 123, 255, 0.08);
+
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.card:hover {
+    transform: translateY(-8px) scale(1.03);
+
+    box-shadow: 
+        0 15px 35px rgba(0, 123, 255, 0.25),
+        0 0 15px rgba(0, 123, 255, 0.2);
+
+    border: 1px solid rgba(0, 123, 255, 0.4);
+}
+
+
+
+/* =========================
+   INPUT INSIDE CARD
+========================= */
+
+.card label {
+    font-size: 25px;
+    font-weight: 600;
+    color: #0a2540;
+
+    letter-spacing: 0.5px;
+}
+
+/* Input */
+.card input {
+    width: 90%;
+    padding: 12px 14px;
+
+    font-size: 22px;
+
+    border-radius: 10px;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+
+    background: rgba(255, 255, 255, 0.7);
+    color: #0a2540;
+
+    outline: none;
+
+    transition: all 0.3s ease;
+}
+
+/* Focus */
+.card input:focus {
+    border-color: #007bff;
+
+    background: #ffffff;
+
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.25);
+}
+
+/* Button group */
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Clear button */
+#clearBtn {
+    padding: 12px 25px;
+    background: #e0e0e0;
+    color: #333333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 25px;
+}
+
+#clearBtn:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 12px 30px rgba(0, 123, 255, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+
+#predictBtn {
+    padding: 12px 25px;
+    background: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 25px;
+}
+
+#predictBtn:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 12px 30px rgba(0, 123, 255, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+
+
+
+
+
+/* =========================
+   RESULT DISPLAY
+========================= */
+/* .result {
+    margin-top: 30px;
+    padding: 15px 25px;
+
+    font-size: 24px;
+    font-weight: 500;
+    color: #0a2540;
+
+    background: rgba(0, 123, 255, 0.08);
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    border-radius: 10px;
+
+    display: inline-block;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+} */
+
+
+/* =========================
+   MODERN RESULT DISPLAY
+========================= */
+.result {
+    margin-top: 40px;
+    padding: 20px 35px;
+
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+
+    color: #0a2540;
+
+    /* Glass effect */
+    background: linear-gradient(
+        135deg,
+        rgba(0, 123, 255, 0.15),
+        rgba(0, 198, 255, 0.15)
+    );
+
+    border-radius: 16px;
+    border: 1px solid rgba(0, 123, 255, 0.25);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    /* Shadow */
+    box-shadow: 
+        0 8px 25px rgba(0, 123, 255, 0.15),
+        0 2px 8px rgba(0, 0, 0, 0.05);
+
+    transition: all 0.3s ease;
+}
+
+/* 🔥 Hover effect */
+.result:hover {
+    transform: scale(1.03);
+    box-shadow: 
+        0 12px 30px rgba(0, 123, 255, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* 💡 Optional icon styling */
+.result::before {
+    content: "💰";
+    font-size: 28px;
+}
+
+
