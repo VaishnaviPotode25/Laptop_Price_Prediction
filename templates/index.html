@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laptop Price Predictor</title>
+
+    <link rel="stylesheet" href="/static/css/index.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+
+<body>
+
+    <!-- 🌊 Background -->
+    <div class="background"></div>
+
+    <div class="main-layout">
+
+        <!-- ================= LEFT PANEL ================= -->
+        <div class="left-panel">
+
+            <div class="lottie-container">
+                    <lottie-player 
+                        src="/static/lottie/lot1.json" 
+                        background="transparent"  
+                        speed="1"  
+                        loop  
+                        autoplay>
+                    </lottie-player>
+            </div>
+
+            <h2 class="info-title">💡 About Predictor</h2>
+
+            <div class="info-box">
+                <ul class="carousel-list">
+                    <li class="active">Predict laptop prices using Machine Learning</li>
+                    <li>Uses multiple regression models for better accuracy</li>
+                    <li>Considers RAM, CPU, GPU, Storage & more</li>
+                    <li>Helps users estimate fair laptop price</li>
+                    <li>Built using Flask & ML pipeline</li>               
+                    <li>Supports real-time price prediction</li>                 
+                    <li>Trained on cleaned and preprocessed dataset</li>
+                    <li>Provides accurate and reliable price estimation</li>           
+                    <li>Helps users make better buying decisions</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- ================= RIGHT PANEL ================= -->
+        <div class="container">
+
+            <div class="title-row">
+                <h1>💻 Laptop Price Predictor</h1>
+
+                <!-- <div class="lottie-container">
+                    <lottie-player 
+                        src="/static/lottie/lot1.json" 
+                        background="transparent"  
+                        speed="1"  
+                        loop  
+                        autoplay>
+                    </lottie-player>
+                </div> -->
+            </div>
+
+            <form action="/predict" method="post" id="predictForm">
+
+                <div class="grid">
+
+                    <div class="card">
+                        <label>Company</label>
+                        <input type="text" name="Company" value="{{ form_data.Company if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>Type Name</label>
+                        <input type="text" name="TypeName" value="{{ form_data.TypeName if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>RAM (GB)</label>
+                        <input type="number" name="Ram" value="{{ form_data.Ram if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>Weight</label>
+                        <input type="number" step="any" name="Weight" value="{{ form_data.Weight if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>TouchScreen (0/1)</label>
+                        <input type="number" name="TouchScreen" value="{{ form_data.TouchScreen if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>IPS (0/1)</label>
+                        <input type="number" name="IPS" value="{{ form_data.IPS if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>PPI</label>
+                        <input type="number" step="any" name="PPI" value="{{ form_data.PPI if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>CPU Name</label>
+                        <input type="text" name="CPU_name" value="{{ form_data.CPU_name if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>HDD</label>
+                        <input type="number" step="any" name="HDD" value="{{ form_data.HDD if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>SSD</label>
+                        <input type="number" step="any" name="SSD" value="{{ form_data.SSD if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>GPU Brand</label>
+                        <input type="text" name="Gpu_brand" value="{{ form_data.Gpu_brand if form_data else '' }}" required>
+                    </div>
+
+                    <div class="card">
+                        <label>Operating System</label>
+                        <input type="text" name="OpSys" value="{{ form_data.OpSys if form_data else '' }}" required>
+                    </div>
+
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" id="predictBtn">🚀 Predict Price</button>
+                    <button type="button" id="clearBtn">🧹 Clear All</button>
+                </div>
+
+            </form>
+
+            <h2 class="result">{{ prediction_text }}</h2>
+            
+
+
+        </div>
+
+    </div>
+
+    <!-- <script src="/static/javascript/index.js"></script> -->
+    <script src="{{ url_for('static', filename='javascript/index.js') }}"></script>
+
+</body>
+</html>
